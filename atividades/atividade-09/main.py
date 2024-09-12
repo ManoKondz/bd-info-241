@@ -2,9 +2,9 @@ import mysql.connector
 
 # Conectar ao banco de dados MySQL
 conn = mysql.connector.connect(
-    host = "172.19.0.1",  # ou o IP do contêiner do banco de dados
+    host = "localhost",  # ou o IP do contêiner do banco de dados
     user = "root",
-    password = "mypassworld",
+    password = "rootpassworld",
     database="escola"
 )
 

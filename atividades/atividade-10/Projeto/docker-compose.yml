@@ -6,7 +6,7 @@ services:
     container_name: mysql_container
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: escola
+      MYSQL_DATABASE: mydatabase
       MYSQL_USER: myuser
       MYSQL_PASSWORD: mypassword
     volumes:
@@ -24,18 +24,6 @@ services:
       PMA_PASSWORD: rootpassword
     ports:
       - "8080:80"
-    depends_on:
-      - mysql
-
-  fastapi:
-    image: tiangolo/uvicorn-gunicorn-fastapi:python3.9
-    container_name: fastapi_container
-    volumes:
-      - ./app:/app  # Mapeia a pasta local 'app' no container
-    environment:
-      - DATABASE_URL=mysql://myuser:mypassword@mysql:3306/escola  # URL de conexão MySQL
-    ports:
-      - "8000:8000"
     depends_on:
       - mysql
 

@@ -31,7 +31,9 @@ services:
     image: tiangolo/uvicorn-gunicorn-fastapi:python3.9
     container_name: fastapi_container
     volumes:
-      - ./app:/app  # Supondo que o código FastAPI esteja na pasta ./app
+      - ./app:/app  # Mapeia a pasta local 'app' no container
+    environment:
+      - DATABASE_URL=mysql://myuser:mypassword@mysql:3306/escola  # URL de conexão MySQL
     ports:
       - "8000:8000"
     depends_on:
